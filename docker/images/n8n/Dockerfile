@@ -13,6 +13,8 @@ LABEL org.opencontainers.image.version=${N8N_VERSION}
 LABEL org.opencontainers.image.created=${N8N_RELEASE_DATE}
 
 ENV N8N_VERSION=${N8N_VERSION}
+ENV N8N_HOST=n8n-production-473c.up.railway.app
+ENV N8N_PORT=443
 ENV NODE_ENV=production
 ENV N8N_RELEASE_TYPE=stable
 ENV N8N_RELEASE_DATE=${N8N_RELEASE_DATE}
