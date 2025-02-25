@@ -1,5 +1,5 @@
 ARG NODE_VERSION=20
-FROM n8nio/base:${NODE_VERSION}
+FROM n8nio/n8n:latest
 
 ARG N8N_VERSION
 RUN if [ -z "$N8N_VERSION" ] ; then echo "The N8N_VERSION argument is missing!" ; exit 1; fi
@@ -15,6 +15,7 @@ LABEL org.opencontainers.image.created=${N8N_RELEASE_DATE}
 ENV N8N_VERSION=${N8N_VERSION}
 ENV N8N_HOST=${N8N_HOST:-n8n-production-473c.up.railway.app}
 ENV N8N_PORT=${N8N_PORT:-443}
+
 ENV NODE_ENV=production
 ENV N8N_RELEASE_TYPE=stable
 ENV N8N_RELEASE_DATE=${N8N_RELEASE_DATE}
