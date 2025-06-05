@@ -31,6 +31,8 @@ ARG TARGETPLATFORM
 ARG LAUNCHER_VERSION=1.1.0
 COPY n8n-task-runners.json /etc/n8n-task-runners.json
 # Download, verify, then extract the launcher binary
+RUN chmod +x /docker-entrypoint.sh
+
 RUN \
 	if [[ "$TARGETPLATFORM" = "linux/amd64" ]]; then export ARCH_NAME="amd64"; \
 	elif [[ "$TARGETPLATFORM" = "linux/arm64" ]]; then export ARCH_NAME="arm64"; fi; \
