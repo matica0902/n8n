@@ -1,8 +1,8 @@
 ARG NODE_VERSION=20
 FROM n8nio/base:${NODE_VERSION}
 ARG N8N_VERSION=1.97.1 # <--- 在這裡給一個默認值
-ARG N8N_VERSION
-RUN if [ -z "$N8N_VERSION" ] ; then echo "The N8N_VERSION argument is missing!" ; exit 1; fi
+#ARG N8N_VERSION
+#RUN if [ -z "$N8N_VERSION" ] ; then echo "The N8N_VERSION argument is missing!" ; exit 1; fi
 
 ARG N8N_RELEASE_DATE
 LABEL org.opencontainers.image.title="n8n"
@@ -33,7 +33,7 @@ COPY n8n-task-runners.json /etc/n8n-task-runners.json
 
 # 複製並處理 docker-entrypoint.sh
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
-
+RUN chmod +x /docker-entrypoint.sh
 
 
 # 下載與驗證 launcher binary
