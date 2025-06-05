@@ -34,14 +34,7 @@ COPY n8n-task-runners.json /etc/n8n-task-runners.json
 # 複製並處理 docker-entrypoint.sh
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 
-# 安裝 dos2unix、轉換行尾、刪除 dos2unix 減少映像大小
-RUN apt-get update && apt-get install -y dos2unix && \
-    dos2unix /docker-entrypoint.sh && \
-    chmod +x /docker-entrypoint.sh && \
-    apt-get remove --purge -y dos2unix && \
-    apt-get autoremove -y && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+
 
 # 下載與驗證 launcher binary
 RUN \
